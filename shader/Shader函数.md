@@ -1,66 +1,30 @@
-#### 1 Shader 内置全局变量
+#### 1、数据函数
 
-* gl_FragCoord：当前片元的坐标（x 和 y 分量）。
-* gl_FragColor：当前片元的颜色（RGBA 格式）。
-* gl_FragDepth：当前片元的深度值。
-* iResolution：屏幕分辨率（宽高）像素值，与视口尺寸相关
-* iTime：当前时间，着色器加载开始计时
-* float iTimeDelta：自上一帧到当前帧的时间间隔（以秒为单位）。
-* int iFrame：当前帧的帧数，比较常用。
-* float iChannelTime[4]：各个纹理通道的时间（以秒为单位）。通道0对应sampler2D iChannel0，通道1对应sampler2D iChannel1，以此类推。
-* vec3 iChannelResolution[4]：各个纹理通道的分辨率（宽度、高度和深度）。通道0对应sampler2D iChannel0，通道1对应sampler2D iChannel1，以此类推。
-* samplerXX iChannel0、samplerXX iChannel1、samplerXX iChannel2、samplerXX iChannel3：纹理通道，其中XX表示纹理的类型（如sampler2D表示二维纹理）。
-* iMouse：用于获取鼠标的位置和状态信息。它是一个包含四个分量的vec4类型变量，分别表示鼠标的坐标（x 和 y 分量）以及左右键的按下状态（z 和 w 分量）。
+| 函数 | 说明 |
+| ---- | ---- |
+|      |      |
 
 
 
+#### 2、几何函数
 
-
-#### 2、向量四宝
-
-* dot
-
-   向量点乘第一种可以用来求两个向量之间的角度。
-
-  ```js
-   * 向量点乘 V1*V2 = |V1|*|V2|*cos(θ)
-   * dot(v1,v2) = length(v1)*length(v2)*cos(θ)
-   * cos(θ) = dot(v1,v2) / (length(v1)*length(v2))
-  θ = acos(dot(v1,v2));
-  ```
-
-  
-
-  第二个可以用来求一个向量在另一个向量上的投影
-
-  ```js
-   * v1在v2上的投影 = dot(v1,v2) / length(v1)
-   * h = |V2|*cos(θ)
-  ```
-
-  
-
-* cross
-
-```js
- * 向量叉乘 cross
- * 向量叉乘的结果是一个垂直于两个向量的向量
- * V3 同时垂直于 V1 V2
- * V1 * V2 = V3 = cross(v1,v2)
-```
+| 函数 | 说明 |
+| ---- | ---- |
+|      |      |
 
 
 
-* normalize
-* length
+#### 3、纹理映射函数
+
+| 函数 | 说明 |
+| ---- | ---- |
+|      |      |
 
 
 
-#### 使用工具函数
+
 
 ceil、floor、step、smoothstep、clamp 等 
-
-
 
 ```glsl
 // 归一化 屏幕坐标在 0-1 之间

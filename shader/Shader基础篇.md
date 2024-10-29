@@ -3,7 +3,7 @@
 * gl_FragCoord：当前片元的坐标（x 和 y 分量）。
 * gl_FragColor：当前片元的颜色（RGBA 格式）。
 * gl_FragDepth：当前片元的深度值。
-* iResolution：屏幕分辨率（宽高）像素值，与视口尺寸相关
+* iResolution：屏幕表示屏幕的长和宽，与视口尺寸相关
 * iTime：当前时间，着色器加载开始计时
 * float iTimeDelta：自上一帧到当前帧的时间间隔（以秒为单位）。
 * int iFrame：当前帧的帧数，比较常用。
@@ -21,20 +21,21 @@ vec2 st = fragCoord.xy / iResolution.xy;
 st -= 0.5;
 // 长宽等比例压缩
 st.x = iResolution.x / iResolution.y;
-
 // 等价于下面这代码
-vec2 uv = (2.0* gl_FragCoord.xy - iResolution) / iResolution.y;
+vec2 uv = (2.0* gl_FragCoord.xy - iResolution) / min(iResolution.x, iResolution.y);
 ```
 
 
 
+#### 2、变量
 
 
 
 
-#### 2 Shader 内置函数
 
 
+
+#### 3 函数
 
 | 函数               | 说明                                                         |
 | ------------------ | ------------------------------------------------------------ |
